@@ -29,12 +29,12 @@ bool is_prime_number(Integer n)
 
 template <class Integer>
 std::vector<Integer> prime_numbers(
-  Integer begin, Integer end
+  Integer first, Integer last
 )
 {
   std::vector<Integer> primes;
   
-  while(begin!=end)
+  while(first<=last)
   {
     if(begin<=1)
     {
@@ -42,11 +42,11 @@ std::vector<Integer> prime_numbers(
     }
     else
     {
-      if(is_prime_number(begin))
-        primes.push_back(begin);
+      if(is_prime_number(first))
+        primes.push_back(first);
     }
     
-    begin++;
+    first++;
   }
   
   return primes;
