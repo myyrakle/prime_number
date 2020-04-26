@@ -33,18 +33,16 @@ std::vector<Integer> prime_numbers(
 )
 {
   std::vector<Integer> primes;
+
+  if(first<=1)
+  {
+    return primes;
+  }
   
   while(first<=last)
   {
-    if(begin<=1)
-    {
-      //nothing
-    }
-    else
-    {
-      if(is_prime_number(first))
-        primes.push_back(first);
-    }
+    if(is_prime_number(first))
+      primes.push_back(first);
     
     first++;
   }
