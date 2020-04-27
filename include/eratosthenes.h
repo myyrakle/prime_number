@@ -8,7 +8,7 @@ std::vector<Integer> eratosthenes(
 {
   //입력이 유효하지 않으면 빈 벡터 반환
   if(last<=1 || first>last)
-    return std::vector();
+    return std::vector<Integer>();
   
   std::vector<Integer> all_number;
  
