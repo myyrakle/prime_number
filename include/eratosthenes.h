@@ -1,5 +1,4 @@
 #include <cmath>
-#include <iostream>
 #include <vector>
 
 template <class Integer>
