@@ -1,10 +1,9 @@
 #include <cmath>
+#include <iostream>
 #include <vector>
 
 template <class Integer>
-std::vector<Integer> eratosthenes(
-  Integer first, Integer last
-)
+std::vector<Integer> eratosthenes(Integer first, Integer last)
 {
   //입력이 유효하지 않으면 빈 벡터 반환
   if(last<=1 || first>last)
@@ -19,23 +18,25 @@ std::vector<Integer> eratosthenes(
   }
   
   std::vector<bool> prime_checker(all_number.size(), true);
+
+  
   
   Integer divisor = 2;
   Integer root = sqrt(last);
   while(divisor<=root)
   {
-    Integer i = divisor; //나눌 수
     int index = 0; //인덱스 위치
-    while(i<first)
+    //나눌 수를 first보다 크거나 같은 최소배수로 설정
+    if(first<divisor)
     {
-      i+=divisor;
-      index+=divisor;
+       index += (divisor-first);
     }
-    while(i<=last)
+
+    index+=divisor; //제수 자신은 제외
+
+    while(index<all_number.size())
     {
       prime_checker[index] = false;
-      
-      i+=divisor;
       index+=divisor;
     }
     
@@ -43,7 +44,7 @@ std::vector<Integer> eratosthenes(
   }
   
   std::vector<Integer> primes;
-  for(int i=0; i<all_number; i++)
+  for(int i=0; i<all_number.size(); i++)
   {
     if(prime_checker[i])
       primes.push_back(all_number[i]);
