@@ -9,6 +9,7 @@ std::vector<Integer> eratosthenes(Integer first, Integer last)
     return std::vector<Integer>();
   
   std::vector<Integer> all_number;
+  all_number.reserve(last-first+1);
  
   //모든 후보를 할당.
   for(Integer i = first; i<=last; i++)
