@@ -19,8 +19,13 @@ std::vector<Integer> eratosthenes(Integer first, Integer last)
   
   std::vector<bool> prime_checker(all_number.size(), true);
 
+  //1 제외
+  if(first<=1)
+  {
+    prime_checker[(1-first)] = false;
+  }
   
-  
+  //걸러내기 시작
   Integer divisor = 2;
   Integer root = sqrt(last);
   while(divisor<=root)
@@ -43,6 +48,7 @@ std::vector<Integer> eratosthenes(Integer first, Integer last)
     divisor++;
   }
   
+  //걸러낸 소수 추출
   std::vector<Integer> primes;
   for(int i=0; i<all_number.size(); i++)
   {
