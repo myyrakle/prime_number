@@ -34,18 +34,23 @@ std::vector<Integer> eratosthenes(Integer first, Integer last)
         Integer offset = (first + divisor - 1) / divisor * divisor;
         int index = offset - first;
 
-        //자기 자신은 소수 취급해야 하므로 divisor를 더함
-        //4의 경우는 소수가 아니지만 이는 2에서 이미 걸러졌으므로 상관없음
-        if (offset == divisor)
+        //문제의 조건문.
+        //n의 약수의 배수들이 걸러졌다면, n의 배수는 거를 필요가 없을 거란 생각
+        //if(prime_checker[index]==true)  
         {
-            index += divisor;
-        }
+            //자기 자신은 소수 취급해야 하므로 divisor를 더함
+            //4의 경우는 소수가 아니지만 이는 2에서 이미 걸러졌으므로 상관없음
+            if (offset == divisor)
+            {
+                index += divisor;
+            }
 
-        //divisor의 배수를 전부 걸러냄
-        while (index < all_number.size())
-        {
-            prime_checker[index] = false;
-            index += divisor;
+            //divisor의 배수를 전부 걸러냄
+            while (index < all_number.size())
+            {
+                prime_checker[index] = false;
+                index += divisor;
+            }
         }
     }
 
