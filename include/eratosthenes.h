@@ -1,3 +1,6 @@
+#include <cmath>
+#include <vector>
+
 template <class Integer>
 std::vector<Integer> eratosthenes(Integer first, Integer last)
 {
