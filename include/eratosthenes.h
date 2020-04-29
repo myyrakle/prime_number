@@ -4,19 +4,19 @@
 template <class Integer>
 std::vector<Integer> eratosthenes(Integer first, Integer last)
 {
-    //최소 시작 도메인을 [2, last]로 맞춤
-    if (first < 2)
-    {
-        first = 2;
-    }
-
     //입력이 유효하지 않으면 빈 벡터 반환
     if (last <= 1 || first > last)
     {
         return std::vector<Integer>();
     }
 
-    std::vector<Integer> all_number;
+    //최소 시작 도메인을 [2, last]로 맞춤
+    if (first < 2)
+    {
+        first = 2;
+    }
+
+    std::vector<Integer> all_number; //모든 후보군의 벡터
     all_number.reserve(last - first + 1);
 
     //모든 후보를 할당
@@ -25,6 +25,7 @@ std::vector<Integer> eratosthenes(Integer first, Integer last)
         all_number.push_back(i);
     }
 
+    //소수 체크리스트
     std::vector<bool> prime_checker(all_number.size(), true);
 
     for (Integer divisor = 2; divisor * divisor <= last; ++divisor)
@@ -40,6 +41,7 @@ std::vector<Integer> eratosthenes(Integer first, Integer last)
             index += divisor;
         }
 
+        //divisor의 배수를 전부 걸러냄
         while (index < all_number.size())
         {
             prime_checker[index] = false;
