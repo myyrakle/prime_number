@@ -5,7 +5,7 @@ template <class Integer>
 std::vector<Integer> eratosthenes(Integer first, Integer last)
 {
     //최소 시작 도메인을 [2, last]로 맞춤
-    if (first <= 1)
+    if (first < 2)
     {
         first = 2;
     }
@@ -15,7 +15,6 @@ std::vector<Integer> eratosthenes(Integer first, Integer last)
     {
         return std::vector<Integer>();
     }
-
 
     std::vector<Integer> all_number;
     all_number.reserve(last - first + 1);
